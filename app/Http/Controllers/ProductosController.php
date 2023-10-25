@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
-    public function producto()
+    public function productos()
     {
         echo json_encode(array("mensaje" => "Proximamente lista de productos"));
     }
