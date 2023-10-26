@@ -20,7 +20,7 @@ class ProductosController extends Controller
     public function actualizarProd(Request $request){
         return response()->json(['respuesta' => $request->id]);
     }
-    public function eliminarProd(Request $request){
-        echo "producto eliminado";    
+    public function eliminarProd(){
+        echo json_encode(array("mensaje" => "Producto eliminado"));
     }
 }
