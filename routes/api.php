@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductosController;
-use App\Http\Controllers\categoriasController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\pagosController;
 
 
@@ -30,8 +30,8 @@ Route::delete('producto/{id}', [ProductosController::class,'eliminarProd']);
 
 
 //Rutas de categorias
-Route::get('categoria', [categoriasController::class, 'categorias']);
-Route::post('crearcategoria', [categoriasController::class, 'nuevaCategoria']);
+Route::get('categoria', [CategoriaController::class, 'listar']);
+Route::post('crearcategoria', [CategoriaController::class, 'nuevaCategoria']);
 
 //Rutas de metodos de pago
 Route::get('metodopago', [pagosController::class, 'metodosPago']);

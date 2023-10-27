@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
     public function usuarios()
     {
-        echo json_encode(array("mensaje" => "Proximamente lista de usuarios"));
+        $Usuarios = Usuario::all();
+        return response()->json($Usuarios);
     }
 
     public function nuevoUsuario(Request $request){

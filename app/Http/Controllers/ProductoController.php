@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
@@ -12,7 +13,13 @@ class ProductosController extends Controller
     }
 
     public function nuevoProducto(Request $request){
-        return response()->json(['respuesta' => $request->mensaje]);
+        $producto = new Producto();
+        $producto->nombre = $request->input('nombre');
+        $producto->precio = $request->input('precio');
+        $producto->imagen = $request->input('imagen');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->categoria = $request->input('categoria');
+        $producto->save();
     }
     public function productoId(Request $request){
         return response()->json(['respuesta' => $request->id]);
