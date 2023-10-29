@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\pagosController;
+use App\Http\Controllers\PagoController;
+use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\OrdenCompraController;
 
 
 
@@ -34,7 +36,16 @@ Route::get('categoria', [CategoriaController::class, 'listar']);
 Route::post('crearcategoria', [CategoriaController::class, 'nuevaCategoria']);
 
 //Rutas de metodos de pago
-Route::get('metodopago', [pagosController::class, 'metodosPago']);
-Route::post('crearmetodopago', [pagosController::class, 'nuevoMetodoPago']);
-Route::put('actmetodopago/{id}', [pagosController::class, 'actualizarMetodoPago']);
+Route::get('metodopago', [PagoController::class, 'metodosPago']);
+Route::post('crearmetodopago', [PagoController::class, 'nuevoMetodoPago']);
+Route::put('actmetodopago/{id}', [PagoController::class, 'actualizarMetodoPago']);
 
+//Rutas carrito
+Route::get('carritos', [CarritoController::class, 'carrito']);
+Route::post('crearcarrito', [CarritoController::class, 'nuevoCarrito']);
+Route::put('carritos/{id}', [CarritoController::class, 'actCarrito']);
+Route::delete('carritos/{id}', [CarritoController::class,'eliminarCarrito']);
+
+//orden de compra
+Route::post('crearorden', [OrdenCompraController::class, 'nuevaOrden']);
+Route::put('actualizarorden/{id}', [OrdenCompraController::class, 'actualizarOrden']);
