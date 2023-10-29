@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metodos_pago', function (Blueprint $table) {
+        Schema::create('carritos', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo', 100);
-            $table->timestamps(false);
+            $table->string('usuario_id');
+            $table->float('importe');
+            $table->timestamp('fecha_creacion')->nullable();
+            $table->boolean('finalizado');
+            $table->timestamps();
         });
     }
 
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('metodos_pago');
+        Schema::dropIfExists('carritos');
     }
 };
