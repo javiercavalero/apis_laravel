@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Pago extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+    
     protected $fillable = ['tipo'];
-    protected $hidden = ['created_at', 'updated_at'];
 }

@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class Usuario extends Authenticatable
 {
@@ -20,7 +20,9 @@ class Usuario extends Authenticatable
     protected $fillable = [
         'nombre',
         'email',
-        'contraseña',
+        'contrasena',
+        'telefono',
+        'domicilio',
     ];
 
     /**
@@ -29,8 +31,11 @@ class Usuario extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'contraseña',
+        'contrasena',
         'remember_token',
+        'activo',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -39,7 +44,11 @@ class Usuario extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'contraseña' => 'hashed',
+        'contrasena' => 'hashed',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->contrasena;
+    }
 }
