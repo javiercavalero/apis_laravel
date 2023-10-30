@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pago;
+use App\Models\MetodoPago;
 use Illuminate\Http\Request;
 
-class pagosController extends Controller
+class MetodoPagoController extends Controller
 {
     public function metodosPago()
     {
-        $Pagos = Pago::all();
+        $Pagos = MetodoPago::all();
         return response()->json($Pagos);
     }
 
     public function nuevoMetodoPago(Request $request){
-        $metodo = new Pago();
+        $metodo = new MetodoPago();
         $metodo->metodo = $request->input('metodo');
         $metodo->save();
 
