@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
-class ProductosController extends Controller
+class ProductoController extends Controller
 {
     public function productos()
     {
-        echo json_encode(array("mensaje" => "Proximamente lista de productos"));
+        $Productos = Producto::all();
+        return response()->json($Productos);
     }
 
     public function nuevoProducto(Request $request){
