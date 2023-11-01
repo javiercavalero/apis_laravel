@@ -9,6 +9,7 @@ use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\MetodoPagoController;
 use App\Http\Controllers\OrdenCompraController;
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
